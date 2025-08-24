@@ -1,6 +1,6 @@
-# CSPrep - GATE/UGCNET Quiz Website
+# BrainQuestByNamanGupta - GATE/UGCNET Quiz Website
 
-CSPrep is a web platform designed to assist GATE/UGCNET aspirants in their exam preparation by providing quizzes on various subjects. This project aims to create an interactive and educational experience for users preparing for these competitive exams.
+BrainQuest is a web platform designed to assist GATE/UGCNET aspirants in their exam preparation by providing quizzes on various subjects. This project aims to create an interactive and educational experience for users preparing for these competitive exams.
 
 ## Features
 
