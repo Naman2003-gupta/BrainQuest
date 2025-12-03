@@ -5,560 +5,2828 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta content="" name="keywords" />
-  <meta content="" name="description" />
-
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Icon Font Stylesheet -->
+  <meta name="keywords" content="e-learning, online courses, GATE preparation, UGC-NET, professional certification" />
+  <meta name="description" content="AcademyPro - Your premier destination for professional e-learning and certification preparation" />
+  
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/767515e0a9.js" crossorigin="anonymous"></script>
-
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <!-- Jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
+  
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script>
-
-  <title>BrainQuest Home Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- AOS CSS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <title>AcademyPro | Professional E-Learning Platform</title>
+  
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3a0ca3;
+      --accent-color: #4cc9f0;
+      --success-color: #06d6a0;
+      --warning-color: #ffd166;
+      --danger-color: #ef476f;
+      --dark-color: #1a1a2e;
+      --light-color: #f8f9fa;
+      --gray-color: #6c757d;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --gradient-primary: linear-gradient(135deg, #4361ee, #3a0ca3);
+      --gradient-accent: linear-gradient(135deg, #4cc9f0, #4361ee);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background-color: #f9f9f9;
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+      border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+    }
+    
+    /* Navbar Styling */
+    .navbar {
+      background: var(--gradient-primary) !important;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      padding: 15px 0 !important;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar.scrolled {
+      padding: 10px 0 !important;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .navbar-brand {
+      font-size: 1.8rem !important;
+      color: white !important;
+      font-weight: 900;
+      letter-spacing: 1px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar-brand i {
+      color: var(--accent-color);
+      margin-right: 10px;
+      font-size: 2rem;
+      animation: pulse 2s infinite;
+    }
+    
+    .navbar-brand span {
+      color: var(--accent-color);
+      position: relative;
+    }
+    
+    .navbar-brand span::after {
+      content: 'PRO';
+      position: absolute;
+      top: -8px;
+      right: -25px;
+      font-size: 0.6rem;
+      background: var(--accent-color);
+      color: white;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-weight: 700;
+    }
+    
+    .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-weight: 500;
+      margin: 0 8px;
+      padding: 8px 15px !important;
+      border-radius: 30px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .navbar-nav .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    .navbar-nav .nav-link:hover::before,
+    .navbar-nav .nav-link.active::before {
+      width: 80%;
+    }
+    
+    .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .navbar .button {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .navbar .button .btn {
+      border-radius: 30px;
+      padding: 8px 25px;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .navbar .button .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+    
+    .navbar .button .btn:hover::before {
+      left: 100%;
+    }
+    
+    .navbar .login-btn {
+      background-color: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      color: white;
+    }
+    
+    .navbar .login-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: white;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar .signup-btn {
+      background-color: var(--accent-color);
+      border: 2px solid var(--accent-color);
+      color: white;
+      box-shadow: 0 4px 15px rgba(76, 201, 240, 0.4);
+    }
+    
+    .navbar .signup-btn:hover {
+      background-color: white;
+      color: var(--accent-color);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(76, 201, 240, 0.6);
+    }
+    
+    /* Dropdown Menu */
+    .dropdown-menu {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      padding: 15px 0;
+      animation: dropdownFade 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .dropdown-item {
+      padding: 10px 20px;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .dropdown-item:hover {
+      background: linear-gradient(90deg, rgba(67, 97, 238, 0.1), transparent);
+      transform: translateX(5px);
+      color: var(--primary-color);
+    }
+    
+    @keyframes dropdownFade {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(rgba(26, 26, 46, 0.9), rgba(58, 12, 163, 0.85)), 
+                  url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 150px 0 100px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(76, 201, 240, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(67, 97, 238, 0.1) 0%, transparent 50%);
+      animation: backgroundMove 20s ease-in-out infinite alternate;
+    }
+    
+    @keyframes backgroundMove {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        transform: translate(50px, 50px) scale(1.1);
+      }
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-title {
+      font-size: 3.8rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      background: linear-gradient(45deg, white, var(--accent-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: titleGlow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes titleGlow {
+      0% {
+        text-shadow: 0 0 20px rgba(76, 201, 240, 0.3);
+      }
+      100% {
+        text-shadow: 0 0 30px rgba(76, 201, 240, 0.6);
+      }
+    }
+    
+    .hero-title span {
+      color: var(--accent-color);
+      position: relative;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 35px;
+      opacity: 0.9;
+      line-height: 1.7;
+      font-weight: 300;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 15px;
+      border-left: 4px solid var(--accent-color);
+    }
+    
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .hero-buttons .btn {
+      border-radius: 50px;
+      padding: 15px 35px;
+      font-weight: 600;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .hero-buttons .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+    
+    .hero-buttons .btn:hover::before {
+      left: 100%;
+    }
+    
+    .btn-primary-custom {
+      background: var(--gradient-accent);
+      border: none;
+      color: white;
+      box-shadow: 0 8px 25px rgba(76, 201, 240, 0.4);
+      animation: pulseGlow 2s infinite;
+    }
+    
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 8px 25px rgba(76, 201, 240, 0.4);
+      }
+      50% {
+        box-shadow: 0 8px 35px rgba(76, 201, 240, 0.6);
+      }
+    }
+    
+    .btn-primary-custom:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(76, 201, 240, 0.6);
+    }
+    
+    .btn-outline-light-custom {
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      color: white;
+      background: transparent;
+    }
+    
+    .btn-outline-light-custom:hover {
+      background: white;
+      color: var(--dark-color);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+    }
+    
+    .btn-light-custom {
+      background: white;
+      color: var(--dark-color);
+      border: none;
+    }
+    
+    .btn-light-custom:hover {
+      background: var(--accent-color);
+      color: white;
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(76, 201, 240, 0.4);
+    }
+    
+    .hero-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    
+    .feature-badge {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      padding: 10px 25px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      animation: floatUpDown 3s ease-in-out infinite;
+    }
+    
+    .feature-badge:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+    
+    .feature-badge:nth-child(3) {
+      animation-delay: 1s;
+    }
+    
+    @keyframes floatUpDown {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    .feature-badge:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px) scale(1.05);
+    }
+    
+    .feature-badge i {
+      color: var(--accent-color);
+      font-size: 1.2rem;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      background: linear-gradient(135deg, var(--dark-color), #2d2d44);
+      color: white;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .stats-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234361ee' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      animation: backgroundMove 30s linear infinite;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 30px 20px;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-10px);
+    }
+    
+    .stat-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+      background: rgba(76, 201, 240, 0.1);
+      border-radius: 50%;
+      z-index: -1;
+      animation: statPulse 2s infinite;
+    }
+    
+    @keyframes statPulse {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: translateX(-50%) scale(1.2);
+        opacity: 0.3;
+      }
+    }
+    
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+      font-family: 'Raleway', sans-serif;
+      position: relative;
+    }
+    
+    .stat-number::after {
+      content: '+';
+      position: absolute;
+      top: 0;
+      right: -20px;
+      color: var(--accent-color);
+      opacity: 0.7;
+    }
+    
+    .stat-text {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    
+    /* Section Styling */
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.8rem;
+      color: var(--dark-color);
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+    }
+    
+    .section-title p {
+      color: var(--gray-color);
+      max-width: 700px;
+      margin: 30px auto 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      color: var(--gray-color);
+      max-width: 800px;
+      margin: 0 auto 50px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    
+    /* Features Section */
+    .features-section {
+      padding: 120px 0;
+      background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+      position: relative;
+    }
+    
+    .features-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    }
+    
+    .feature-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--gradient-accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 25px 60px rgba(67, 97, 238, 0.15);
+    }
+    
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover .feature-icon {
+      transform: rotateY(180deg);
+      background: var(--gradient-accent);
+    }
+    
+    .feature-icon i {
+      font-size: 32px;
+      color: white;
+    }
+    
+    .feature-card h4 {
+      margin-bottom: 20px;
+      color: var(--dark-color);
+      font-size: 1.4rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .feature-card h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+    
+    .feature-card p {
+      color: var(--gray-color);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    
+    .feature-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-link:hover {
+      color: var(--accent-color);
+      gap: 12px;
+    }
+    
+    /* Courses Section */
+    .courses-section {
+      padding: 120px 0;
+      background: white;
+      position: relative;
+    }
+    
+    .course-filter {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 50px;
+    }
+    
+    .filter-btn {
+      padding: 10px 25px;
+      border: 2px solid var(--primary-color);
+      background: transparent;
+      color: var(--primary-color);
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--gradient-primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+    }
+    
+    .course-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-bottom: 30px;
+      height: 100%;
+      position: relative;
+    }
+    
+    .course-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 25px 60px rgba(67, 97, 238, 0.15);
+    }
+    
+    .course-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--danger-color);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+      animation: badgePulse 2s infinite;
+    }
+    
+    @keyframes badgePulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+    
+    .course-img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .course-card:hover .course-img {
+      transform: scale(1.1);
+    }
+    
+    .course-content {
+      padding: 30px;
+    }
+    
+    .course-category {
+      display: inline-block;
+      background: rgba(67, 97, 238, 0.1);
+      color: var(--primary-color);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .course-card:hover .course-category {
+      background: var(--gradient-primary);
+      color: white;
+    }
+    
+    .course-title {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--dark-color);
+      line-height: 1.4;
+    }
+    
+    .course-description {
+      color: var(--gray-color);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    
+    .course-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .course-price {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary-color);
+    }
+    
+    .course-price span {
+      font-size: 1rem;
+      color: var(--gray-color);
+      text-decoration: line-through;
+      margin-left: 8px;
+      font-weight: 400;
+    }
+    
+    .btn-enroll {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-enroll:hover {
+      background: var(--gradient-accent);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(67, 97, 238, 0.4);
+    }
+    
+    /* Premium Section */
+    .premium-section {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .premium-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234cc9f0' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+      animation: backgroundMove 30s linear infinite;
+    }
+    
+    .premium-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 45px 35px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .premium-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    
+    .premium-card:hover::before {
+      transform: translateX(100%);
+    }
+    
+    .premium-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-15px) scale(1.03);
+      border-color: var(--accent-color);
+    }
+    
+    .premium-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      color: white;
+      padding: 5px 20px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transform: rotate(15deg);
+    }
+    
+    .premium-card h3 {
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      color: white;
+    }
+    
+    .premium-price {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 30px;
+      color: var(--accent-color);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .premium-price span {
+      font-size: 1rem;
+      opacity: 0.8;
+      position: absolute;
+      bottom: 10px;
+      left: 100%;
+      white-space: nowrap;
+    }
+    
+    .premium-features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 35px;
+    }
+    
+    .premium-features li {
+      margin-bottom: 18px;
+      padding-left: 35px;
+      position: relative;
+      font-size: 1.05rem;
+      opacity: 0.9;
+    }
+    
+    .premium-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+      font-size: 1.2rem;
+      width: 25px;
+      height: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .btn-premium {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 15px 30px;
+      font-weight: 600;
+      width: 100%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .btn-premium::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+    
+    .btn-premium:hover::before {
+      left: 100%;
+    }
+    
+    .btn-premium:hover {
+      background: white;
+      color: var(--primary-color);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Testimonials */
+    .testimonials-section {
+      padding: 120px 0;
+      background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+      position: relative;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      margin-bottom: 30px;
+      transition: all 0.4s ease;
+      position: relative;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 5rem;
+      color: var(--accent-color);
+      opacity: 0.1;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(67, 97, 238, 0.15);
+    }
+    
+    .testimonial-content {
+      margin-bottom: 25px;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--gray-color);
+      font-size: 1.05rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-rating {
+      color: var(--warning-color);
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .testimonial-author img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 20px;
+      object-fit: cover;
+      border: 3px solid var(--accent-color);
+      transition: transform 0.3s ease;
+    }
+    
+    .testimonial-card:hover .testimonial-author img {
+      transform: rotate(360deg);
+    }
+    
+    .author-info h5 {
+      margin-bottom: 5px;
+      color: var(--dark-color);
+    }
+    
+    .author-info p {
+      color: var(--gray-color);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--dark-color);
+      color: white;
+      padding: 100px 0 30px;
+      position: relative;
+    }
+    
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    }
+    
+    .footer h5 {
+      margin-bottom: 30px;
+      color: white;
+      position: relative;
+      padding-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    
+    .footer h5::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+    
+    .footer a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: block;
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 0;
+      overflow: hidden;
+    }
+    
+    .footer a::before {
+      content: '→';
+      position: absolute;
+      left: -20px;
+      transition: all 0.3s ease;
+      opacity: 0;
+    }
+    
+    .footer a:hover {
+      color: var(--accent-color);
+      transform: translateX(10px);
+    }
+    
+    .footer a:hover::before {
+      left: 0;
+      opacity: 1;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 45px;
+      transition: all 0.3s ease;
+      margin-bottom: 0;
+    }
+    
+    .footer-social a:hover {
+      background: var(--accent-color);
+      transform: translateY(-5px) rotate(360deg);
+      color: white;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 50px;
+      margin-top: 50px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.95rem;
+    }
+    
+    .copyright a {
+      color: var(--accent-color);
+      text-decoration: none;
+      display: inline;
+      margin: 0 5px;
+    }
+    
+    /* Modal Styles - Fixed and Improved */
+    .modal-content {
+      border-radius: 25px;
+      border: none;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+      animation: modalAppear 0.4s ease;
+    }
+    
+    @keyframes modalAppear {
+      from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    .modal-header {
+      background: var(--gradient-primary);
+      color: white;
+      border-bottom: none;
+      padding: 25px 30px;
+      position: relative;
+    }
+    
+    .modal-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+    
+    .modal-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    
+    .btn-close-white {
+      filter: invert(1) grayscale(100%) brightness(200%);
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-close-white:hover {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+    
+    .modal-body {
+      padding: 35px;
+    }
+    
+    .form-control {
+      border-radius: 12px;
+      padding: 15px 20px;
+      border: 2px solid #e0e0e0;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.15);
+      transform: translateY(-2px);
+    }
+    
+    .form-label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--dark-color);
+    }
+    
+    /* Button Styling */
+    .btn-primary-custom, .btn-enroll, .btn-premium {
+      background: var(--gradient-primary);
+      border: none;
+      color: white;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .btn-primary-custom::before, .btn-enroll::before, .btn-premium::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+    
+    .btn-primary-custom:hover::before, .btn-enroll:hover::before, .btn-premium:hover::before {
+      left: 100%;
+    }
+    
+    .btn-primary-custom:hover, .btn-enroll:hover, .btn-premium:hover {
+      background: var(--gradient-accent);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(67, 97, 238, 0.3);
+    }
+    
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+      z-index: 1000;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    
+    #backToTop:hover {
+      background: var(--gradient-accent);
+      transform: translateY(-5px) rotate(360deg);
+      box-shadow: 0 15px 35px rgba(67, 97, 238, 0.6);
+    }
+    
+    /* Demo Button */
+    #demoButton {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--warning-color);
+      color: var(--dark-color);
+      border: none;
+      box-shadow: 0 8px 25px rgba(255, 209, 102, 0.4);
+      z-index: 1000;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      animation: demoPulse 2s infinite;
+    }
+    
+    @keyframes demoPulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 25px rgba(255, 209, 102, 0.4);
+      }
+      50% {
+        transform: scale(1.1);
+        box-shadow: 0 12px 30px rgba(255, 209, 102, 0.6);
+      }
+    }
+    
+    #demoButton:hover {
+      background: var(--danger-color);
+      color: white;
+      transform: translateY(-5px) rotate(360deg);
+      box-shadow: 0 15px 35px rgba(239, 71, 111, 0.6);
+      animation: none;
+    }
+    
+    /* Floating elements */
+    .floating-element {
+      position: absolute;
+      z-index: 1;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(58, 12, 163, 0.05));
+      animation: float 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    .floating-element-1 {
+      width: 400px;
+      height: 400px;
+      top: 10%;
+      right: 5%;
+      animation-delay: 0s;
+    }
+    
+    .floating-element-2 {
+      width: 300px;
+      height: 300px;
+      bottom: 20%;
+      left: 5%;
+      animation-delay: 1s;
+    }
+    
+    .floating-element-3 {
+      width: 200px;
+      height: 200px;
+      top: 50%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+    
+    @keyframes float {
+      0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+      }
+      33% { 
+        transform: translate(30px, -30px) rotate(5deg); 
+      }
+      66% { 
+        transform: translate(-20px, 20px) rotate(-5deg); 
+      }
+    }
+    
+    /* Progress Bar */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 9999;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background: var(--gradient-accent);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    
+    /* Loading Animation */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .spinner {
+      width: 70px;
+      height: 70px;
+      border: 5px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      border-top-color: var(--accent-color);
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .hero-title {
+        font-size: 3.2rem;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.8rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.4rem;
+      }
+      
+      .feature-card, .course-card, .premium-card {
+        margin-bottom: 30px;
+      }
+      
+      .navbar .button {
+        margin-top: 15px;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.3rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+        padding: 15px;
+      }
+      
+      .hero-section {
+        padding: 120px 0 80px;
+        text-align: center;
+      }
+      
+      .hero-buttons .btn {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .modal-body {
+        padding: 25px;
+      }
+      
+      .footer {
+        padding: 60px 0 20px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .stat-number {
+        font-size: 2.8rem;
+      }
+      
+      .premium-card {
+        padding: 30px 20px;
+      }
+      
+      #backToTop, #demoButton {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      #demoButton {
+        bottom: 80px;
+      }
+    }
+  </style>
 </head>
 
 <body>
   
+  <!-- Loading Screen -->
+  <div class="loader">
+    <div class="spinner"></div>
+  </div>
+  
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+  
+  <!-- Floating Elements -->
+  <div class="floating-element floating-element-1"></div>
+  <div class="floating-element floating-element-2"></div>
+  <div class="floating-element floating-element-3"></div>
+  
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-    <a href="mainindex.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-      <h2 data-aos="fade-up" class="m-0 text-primary" style="font-family: 'Bruno Ace', cursive; font-weight: bold;">
-        <i class="fa-solid fa-laptop-code me-3"></i>BrainQuest
-      </h2>
-    </a>
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <div class="navbar-nav ms-auto p-4 p-lg-0">
-        <a href="#" class="nav-item nav-link active" onclick="document.location.href = 'Home'">Home</a>
-        <a href="about.html" class="nav-item nav-link">About</a>
-        <a href="contact.html" class="nav-item nav-link">Contact</a>
-        <a href="faq.html" class="nav-item nav-link">FAQ</a>
-        <!-- <a href="#" class="nav-item nav-link" onclick="document.location.href = 'profile'">Profile</a> -->
-      </div>
-      <div class="button">
-        <button type="button" class="btn btn-outline-dark login-btn" id="signin">
-          Login
-        </button>
-        <button type="button" class="btn btn-primary signup-btn" id="signup">
-          Signup
-        </button>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <i class="fas fa-graduation-cap me-2"></i>Academy<span>Pro</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#premium">Premium</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+              More
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="dashboard.html"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
+              <li><a class="dropdown-item" href="my-courses.html"><i class="fas fa-book me-2"></i>My Courses</a></li>
+              <li><a class="dropdown-item" href="progress.html"><i class="fas fa-chart-line me-2"></i>Progress</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="about.html"><i class="fas fa-info-circle me-2"></i>About Us</a></li>
+              <li><a class="dropdown-item" href="faq.html"><i class="fas fa-question-circle me-2"></i>FAQ</a></li>
+              <li><a class="dropdown-item" href="blog.html"><i class="fas fa-blog me-2"></i>Blog</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="button ms-lg-3">
+          <button type="button" class="btn login-btn" data-bs-toggle="modal" data-bs-target="#loginModal">
+            <i class="fas fa-sign-in-alt me-2"></i>Login
+          </button>
+          <button type="button" class="btn signup-btn" data-bs-toggle="modal" data-bs-target="#signupModal">
+            <i class="fas fa-user-plus me-2"></i>Signup
+          </button>
+        </div>
       </div>
     </div>
   </nav>
 
-  <a href="http://localhost:3000/data"></a>
-  <div class="login-form">
-    <form id="login">
-      <h2>Login</h2>
-      <label for="email">Email: </label>
-      <input type="email" id="email" name="email" placeholder="Email" required>
-      <label for="password">Password: </label>
-      <input type="password" id="password" name="password" placeholder="Password" required>
-      <input type="button" class="login-button" onclick="login(this)" value="Login" />
-      <input type="button" class="cancel-btn" value="Cancel" />
-    </form>
-  </div>
-
-  <div class="signup-form">
-    <form id="register">
-      <h2>Register</h2>
-      <label for="username">Name: </label>
-      <input type="text" name="username" placeholder="Enter Name" required>
-      <label for="email">Email: </label>
-      <input type="email" id="email" name="email" placeholder="Email" required>
-      <label for="password">Password: </label>
-      <input type="password" name="password" placeholder="Password" required>
-      <input type="button" class="signup-button" onclick="register(this)" value="Signup" />
-      <input type="button" class="cancel-btn2" value="Cancel" />
-    </form>
-  </div>
-
-  <!-- Main Content -->
-
-  <section class="maincontainer">
-    <div class="maincontent">
-      <div class="mainheading1">
-        Welcome To,
-      </div>
-      <div class="mainheading2">
-        <span class="span1">Brain</span>Quest - <span class="span2">The <span class="span3">GATE</span> To Success</span>
-      </div>
-      <div class="mainpara">
-        BrainQuest is a website that has been designed for students who are preparing
-        for exams like GATE and UGCNET<br> but do not have enough time to prepare. The website has been created with the aim of providing an easy and<br>
-        convenient way for students to prepare for their exams.
-      </div>
-      <div class="mainbutton">
-        <a href="about.html">
-          <button type="button" class="btn btn-primary mainbutton1"> <i class="fa-solid fa-circle-info"></i> Read More</button>
-        </a>
-        <button type="button" class="btn btn-light content-btn login-btn2 mainbutton2"> <i class="fa fa-play"></i> Take Exam</button>
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+        <h1 class="hero-title">Master Your Future with <span>AcademyPro</span></h1>
+        <p class="hero-subtitle">Your premier destination for professional e-learning and certification preparation. Access high-quality courses, expert instructors, and cutting-edge learning tools to accelerate your career growth and achieve your goals faster than ever before.</p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary-custom animate__animated animate__pulse animate__infinite" onclick="window.location.href='#courses'">
+            <i class="fas fa-play-circle me-2"></i>Explore Courses
+          </button>
+          <button class="btn btn-outline-light-custom" data-bs-toggle="modal" data-bs-target="#signupModal">
+            <i class="fas fa-rocket me-2"></i>Start Free Trial
+          </button>
+          <button class="btn btn-light-custom" onclick="window.location.href='#premium'">
+            <i class="fas fa-crown me-2"></i>Go Premium
+          </button>
+        </div>
+        <div class="hero-features">
+          <div class="feature-badge" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-check-circle"></i>
+            <span>500+ Expert-Led Courses</span>
+          </div>
+          <div class="feature-badge" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-check-circle"></i>
+            <span>50,000+ Successful Students</span>
+          </div>
+          <div class="feature-badge" data-aos="fade-up" data-aos-delay="500">
+            <i class="fas fa-check-circle"></i>
+            <span>95% Success Rate in Exams</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section Start -->
-
-  <!-- Header Start -->
-  <div class="col-lg-12 text-center header">
-    <h1 class="display-3 animated slideInDown header1"
-      style="font-weight: 700;">
-      About Us</h1>
-  </div>
-  <!-- Header End -->
-
-  <!-- Service Start -->
-  <div class="container-xxl py-5">
+  <!-- Stats Section -->
+  <section class="stats-section">
     <div class="container">
+      <div class="row text-center">
+        <div class="col-md-3 col-6 stat-item" data-aos="fade-up">
+          <div class="stat-number" data-count="500">0</div>
+          <div class="stat-text">Courses Available</div>
+        </div>
+        <div class="col-md-3 col-6 stat-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-number" data-count="50000">0</div>
+          <div class="stat-text">Students Enrolled</div>
+        </div>
+        <div class="col-md-3 col-6 stat-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-number" data-count="200">0</div>
+          <div class="stat-text">Expert Instructors</div>
+        </div>
+        <div class="col-md-3 col-6 stat-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-number" data-count="95">0</div>
+          <div class="stat-text">Success Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Why Choose AcademyPro?</h2>
+        <p>We provide cutting-edge learning solutions designed to maximize your potential and accelerate your career growth with innovative features and personalized support.</p>
+      </div>
+      
       <div class="row g-4">
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="service-item text-center pt-3">
-            <div class="p-4">
-              <i class="fa fa-3x fa-laptop-code text-primary mb-4"></i>
-              <h5 class="mb-3">Mock Tests</h5>
-              <p>BrainQuest can offer mock tests that simulate the actual GATE exam environment. These tests can help
-                students get a feel for the exam and identify areas where they need to improve.</p>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-laptop-code"></i>
             </div>
+            <h4>Interactive Learning</h4>
+            <p>Engage with interactive courses, quizzes, and hands-on projects that make learning effective and enjoyable. Experience immersive learning with VR and AR integration.</p>
+            <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-          <div class="service-item text-center pt-3">
-            <div class="p-4">
-              <i class="fa fa-3x fa-user text-primary mb-4"></i>
-              <h5 class="mb-3">Personalized Performance Analysis</h5>
-              <p>BrainQuest can provide personalized performance analysis to its users. This analysis can help students
-                identify their strengths and weaknesses.</p>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
             </div>
+            <h4>Progress Analytics</h4>
+            <p>Track your learning journey with detailed analytics and personalized insights to optimize your study plan. Get AI-powered recommendations based on your performance.</p>
+            <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-          <div class="service-item text-center pt-3">
-            <div class="p-4">
-              <i class="fa fa-3x fa-square-poll-vertical text-primary mb-4"></i>
-              <h5 class="mb-3">Analytics and Progress Tracking</h5>
-              <p>BrainQuest can provide detailed analytics and progress tracking to its users. This can help students to
-                make informed decisions about their preparation strategy.</p>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-user-graduate"></i>
             </div>
+            <h4>Expert Instructors</h4>
+            <p>Learn from industry experts and certified professionals with years of practical experience. Get personalized mentorship and career guidance from top professionals.</p>
+            <a href="#" class="feature-link">Meet Instructors <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-          <div class="service-item text-center pt-3">
-            <div class="p-4">
-              <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
-              <h5 class="mb-3">Doubt Clearing Sessions</h5>
-              <p>BrainQuest can offer interactive doubt clearing sessions to its users, where students can ask their
-                doubts/questions and get their doubts/questions cleared instantly.</p>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-certificate"></i>
             </div>
+            <h4>Certification</h4>
+            <p>Earn recognized certificates upon course completion to validate your skills and boost your career. Our certificates are industry-recognized and add value to your profile.</p>
+            <a href="#" class="feature-link">View Certificates <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h4>Flexible Schedule</h4>
+            <p>Learn at your own pace with 24/7 access to course materials from any device, anywhere. Download materials for offline learning and resume where you left off.</p>
+            <a href="#" class="feature-link">Schedule Demo <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h4>Live Sessions</h4>
+            <p>Get your questions answered in real-time through live interactive sessions with instructors. Participate in group discussions and collaborative projects.</p>
+            <a href="#" class="feature-link">View Schedule <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Service End -->
+  </section>
 
-  <div class="container-xxl py-5">
+  <!-- Courses Section -->
+  <section class="courses-section" id="courses">
     <div class="container">
-      <div class="row g-5">
-        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
-          <div class="position-relative h-100">
-            <img class="img-fluid position-absolute w-100 h-100 shadow abt" src="Images/carousel4.jpg" alt=""
-              style="object-fit: cover;">
-          </div>
-        </div>
-        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-          <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-          <h1 class="mb-4">Welcome to BrainQuest</h1>
-          <p class="mb-4">Welcome to BrainQuest, your one-stop solution for GATE (Graduate Aptitude Test in Engineering)
-            preparation!</p>
-          <p class="mb-4">At BrainQuest, we understand the importance of the GATE exam in shaping your career in engineering
-            and technology. That's why we've designed our platform to help you excel in the exam with ease.</p>
-          <div class="row gy-2 gx-4 mb-4">
-            <div class="col-sm-6">
-              <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Mock Tests</p>
-            </div>
-            <div class="col-sm-6">
-              <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Doubt Clearing Session</p>
-            </div>
-            <div class="col-sm-6">
-              <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>User-Friendly Interface</p>
-            </div>
-            <div class="col-sm-6">
-              <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Detailed Analytics</p>
-            </div>
-            <div class="col-sm-6">
-              <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Personalized Performance</p>
-            </div>
-            <div class="col-sm-6">
-              <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Real Exam Environment</p>
-            </div>
-          </div>
-          <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
-        </div>
+      <div class="section-title" data-aos="fade-up">
+        <h2>Popular Courses</h2>
+        <p>Explore our most sought-after courses designed by industry experts to boost your career and transform your professional journey.</p>
+      </div>
+      
+      <div class="course-filter" data-aos="fade-up" data-aos-delay="100">
+        <button class="filter-btn active" onclick="filterCourses('all')">All Courses</button>
+        <button class="filter-btn" onclick="filterCourses('tech')">Technology</button>
+        <button class="filter-btn" onclick="filterCourses('business')">Business</button>
+        <button class="filter-btn" onclick="filterCourses('gate')">GATE Prep</button>
+        <button class="filter-btn" onclick="filterCourses('net')">UGC-NET</button>
+        <button class="filter-btn" onclick="filterCourses('certification')">Certification</button>
+      </div>
+      
+      <div class="row g-4" id="courses-container">
+        <!-- Courses will be dynamically loaded here -->
+      </div>
+      
+      <div class="text-center mt-5" data-aos="fade-up">
+        <button class="btn btn-primary-custom btn-lg" onclick="window.location.href='all-courses.html'">
+          <i class="fas fa-books me-2"></i>View All 500+ Courses
+        </button>
       </div>
     </div>
-  </div>
-  <!-- About Section End -->
+  </section>
 
-  <!-- Testimonial Start -->
-
-    <div class="col-lg-12 text-center header">
-      <h1 class="display-3 animated slideInDown header1"
-        style= "font-weight: 700;">
-        Testimonial</h1>
-    </div>
-    <div class="testcontainer">
-      <h2 style="color: #f9f9f9;">What Our Students Say</h2>
-      <div class="testimonial-container">
-        <div class="testimonial-card">
-          <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="testimonial author">
-          <p class="testimonial-text">I've tried other online courses before, but BrainQuest is by far the best. The lessons
-            are easy to follow, and the practice exams really helped me prepare for the GATE exam. I highly recommend
-            it!</p>
-          <p class="testimonial-author">John Doe</p>
+  <!-- Dashboard Preview -->
+  <section class="features-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h2 class="mb-4">Smart Learning Dashboard</h2>
+          <p class="mb-4">Experience our intuitive dashboard that tracks your progress, provides personalized recommendations, and helps you stay on track with your learning goals. Get real-time insights and analytics.</p>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Real-time progress tracking with visual analytics</li>
+            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> AI-powered personalized study recommendations</li>
+            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Interactive quizzes and assignments with instant feedback</li>
+            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Performance analytics and detailed insights dashboard</li>
+            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Certificate tracking and digital badge management</li>
+          </ul>
+          <button class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#signupModal">
+            <i class="fas fa-external-link-alt me-2"></i>Try Dashboard Demo
+          </button>
         </div>
-        <div class="testimonial-card">
-          <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="testimonial author">
-          <p class="testimonial-text">I was skeptical about taking an online course, but BrainQuest exceeded my
-            expectations. The instructors are knowledgeable and engaging, and the community of students is supportive
-            and helpful. I feel more confident about the GATE exam thanks to BrainQuest.</p>
-          <p class="testimonial-author">Jane Smith</p>
-        </div>
-        <div class="testimonial-card">
-          <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="testimonial author">
-          <p class="testimonial-text">I appreciate how BrainQuest breaks down complex concepts into easy-to-understand
-            explanations. The interactive quizzes and exercises are also very helpful in reinforcing what I've learned.
-            I highly recommend BrainQuest to anyone studying for the GATE exam.</p>
-          <p class="testimonial-author">Bob Johnson</p>
-        </div>
-      </div>
-    </div>
-
-  <!-- Testimonial End -->
-
-  <!-- Start FAQ -->
-  <!-- Header Start -->
-  <div class="col-lg-12 text-center faqheader" style="margin-bottom: 40px;">
-    <h1 class="display-3 animated slideInDown faqheader1"
-      style="font-weight: 700;">
-      FAQ</h1>
-  </div>
-  <!-- Header End -->
-
-  <div class="cntnr">
-    <div class="faq">
-      <h2 class="faq-title">What is GATE?</h2>
-      <p class="faq-content">GATE (Graduate Aptitude Test in Engineering) is a national level exam for admission into
-        M.Tech/Ph.D. programs in engineering, technology, and architecture.</p>
-    </div>
-    <div class="faq">
-      <h2 class="faq-title">When is the GATE exam conducted?</h2>
-      <p class="faq-content">The GATE exam is usually conducted in February every year.</p>
-    </div>
-    <div class="faq">
-      <h2 class="faq-title">What is the exam pattern for GATE?</h2>
-      <p class="faq-content">The GATE exam consists of multiple-choice questions (MCQs) and numerical answer type (NAT)
-        questions. The duration of the exam is 3 hours.</p>
-    </div>
-    <div class="faq">
-      <h2 class="faq-title">How can I apply for GATE?</h2>
-      <p class="faq-content">You can apply for GATE through the official website of the exam conducting authority. The
-        application process usually starts in September every year.</p>
-    </div>
-    <div class="faq">
-      <h2 class="faq-title">How can BrainQuest website help users for the preparation of GATE exam?</h2>
-      <p class="faq-content">BrainQuest is an online learning platform that provides high-quality study materials and
-        practice tests for GATE aspirants. The platform offers a comprehensive curriculum covering all the topics
-        required for the exam, as well as personalized study plans and progress tracking tools. In addition, BrainQuest
-        provides expert guidance and support through its team of experienced educators, who are available to answer any
-        questions or doubts that users may have. By using BrainQuest, users can enhance their knowledge, build their
-        confidence, and maximize their chances of success in the GATE exam.</p>
-    </div>
-  </div>
-
-  <div class="cntnr2">
-    <form id="new-question-form">
-      <label for="new-question">Ask your question:</label>
-      <input type="text" id="new-question" name="new-question" required>
-      <label for="new-answer">Provide an answer:</label>
-      <textarea id="new-answer" name="new-answer" required></textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-
-  <!-- End FAQ -->
-
-  <!-- Contact Start -->
-
-    <div class="col-lg-12 text-center header">
-      <h1 class="display-3 animated slideInDown header1"
-        style="font-weight: 700;">
-        Contact us</h1>
-    </div>
-    <div class="contact-container">
-      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-        <h1 class="mb-5" style="margin-bottom: 20px; color: #f9f9f9;">Contact For Any Query</h1>
-      </div>
-      <div class="row g-4 justify-content-md-center">
-        <div class="col-lg-8 col-md-6  wow fadeInUp" data-wow-delay="0.1s">
-          <h5 style="color: #f9f9f9;">Get In Touch</h5>
-          <div class="d-flex align-items-center mb-3">
-            <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-white"
-              style="width: 50px; height: 50px;">
-              <i class="fa fa-map-marker-alt text-primary"></i>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="feature-card p-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                 class="img-fluid w-100 dashboard-img" alt="Learning Dashboard" 
+                 style="height: 400px; object-fit: cover;">
+            <div class="p-4">
+              <h5 class="text-center">Interactive Learning Interface</h5>
+              <p class="text-center text-muted mb-0">Experience our user-friendly dashboard with all learning tools in one place</p>
             </div>
-            <div class="ms-3">
-              <h5 style="color: #f9f9f9;">Office</h5>
-              <p class="mb-0" style="color: #f9f9f9;">Dalhousie, Himachal Pradesh, India</p>
-            </div>
-          </div>
-          <div class="d-flex align-items-center mb-3">
-            <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-white"
-              style="width: 50px; height: 50px;">
-              <i class="fa-solid fa-phone text-primary"></i>
-            </div>
-            <div class="ms-3">
-              <h5 style="color: #f9f9f9;">Mobile</h5>
-              <p class="mb-0" style="color: #f9f9f9;">+012 345 67890</p>
-            </div>
-          </div>
-          <div class="d-flex align-items-center">
-            <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-white"
-              style="width: 50px; height: 50px;">
-              <i class="fa fa-envelope-open text-primary"></i>
-            </div>
-            <div class="ms-3">
-              <h5 style="color: #f9f9f9;">Email</h5>
-              <p class="mb-0" style="color: #f9f9f9;">info@example.com</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-          <form>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="name" placeholder="Your Name">
-                  <label for="name">Your Name</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-floating">
-                  <input type="email" class="form-control" id="email" placeholder="Your Email">
-                  <label for="email">Your Email</label>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="subject" placeholder="Subject">
-                  <label for="subject">Subject</label>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-floating">
-                  <textarea class="form-control" placeholder="Leave a message here" id="message"
-                    style="height: 150px"></textarea>
-                  <label for="message">Message</label>
-                </div>
-              </div>
-              <div class="col-12">
-                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  <!-- Contact End -->
-
-  <!-- Login / Registration Form -->
-
-  <!-- Header Start -->
-  <div class="col-lg-12 text-center header" style="margin-top: 40px; margin-bottom: 40px;">
-    <h1 class="display-3 animated slideInDown header1"
-      style="font-weight: 700;">
-      Get Started</h1>
-  </div>
-  <!-- Header End -->
-  <div class="container4">
-    <div class="container5">
-      <input type="checkbox" id="flip">
-      <div class="cover">
-        <div class="front">
-          <img src="Images/carousel7.jpg" alt="">
-        </div>
-        <div class="back">
-          <img class="backImg" src="Images/carousel6.jpg" alt="">
-        </div>
-      </div>
-      <div class="forms">
-        <div class="form-content">
-
-          <div class="login-form2">
-            <div class="title">Login</div>
-            <form action="#">
-              <div class="input-boxes">
-                <div class="input-box">
-                  <i class="fas fa-envelope"></i>
-                  <input type="email" name="email" placeholder="Enter Email" required>
-                </div>
-                <div class="input-box">
-                  <i class="fas fa-lock"></i>
-                  <input type="password" name="password" placeholder="Enter your password" required>
-                </div>
-                <div class="text"><a href="#">Forgot password?</a></div>
-                <div class="button input-box">
-                  <input type="button" value="Login" onclick="login(this)">
-                </div>
-                <div class="text sign-up-text">Don't have an account? <label for="flip">Signup now</label></div>
-              </div>
-            </form>
-          </div>
-          <div class="signup-form2">
-            <div class="title">Signup</div>
-            <form action="#">
-              <div class="input-boxes">
-                <div class="input-box">
-                  <i class="fas fa-user"></i>
-                  <input type="text" name="username" placeholder="Enter your name" required>
-                </div>
-                <div class="input-box">
-                  <i class="fas fa-envelope"></i>
-                  <input type="email" name="email" placeholder="Enter your email" required>
-                </div>
-                <div class="input-box">
-                  <i class="fas fa-lock"></i>
-                  <input type="password" name="password" placeholder="Enter your password" required>
-                </div>
-                <div class="button input-box">
-                  <input type="button" value="Signup" onclick="register(this)">
-                </div>
-                <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
-              </div>
-            </form>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Footer Start -->
-  <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5">
-      <div class="row g-5">
-        <div class="col-lg-3 col-md-6">
-          <h4 class="text-white mb-3">Quick Link</h4>
-          <a class="btn btn-link" href="about.html">About Us</a>
-          <a class="btn btn-link" href="contact.html">Contact Us</a>
-          <a class="btn btn-link" href="privacypolicy.html">Privacy Policy</a>
-          <a class="btn btn-link" href="TandC.html">Terms & Condition</a>
-          <a class="btn btn-link" href="faq.html">FAQs & Help</a>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h4 class="text-white mb-3">Contact</h4>
-          <p class="mb-2">
-            <i class="fa fa-map-marker-alt me-3"></i>Dalhousie, Himachal Pradesh,
-            India
-          </p>
-          <p class="mb-2">
-            <i class="fa fa-phone-alt me-3"></i>+012 345 67890
-          </p>
-          <p class="mb-2">
-            <i class="fa fa-envelope me-3"></i>info@example.com
-          </p>
-          <div class="d-flex pt-2">
-            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+  <!-- Premium Section -->
+  <section class="premium-section" id="premium">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2 style="color: white;">Go Premium - Unlock Full Potential</h2>
+        <p style="color: rgba(255,255,255,0.9);">Upgrade to premium for unlimited access, personalized coaching, exclusive resources, and priority support to maximize your learning outcomes.</p>
+      </div>
+      
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="premium-card">
+            <div class="premium-badge">Most Popular</div>
+            <h3>Basic</h3>
+            <div class="premium-price">$19<span>/month</span></div>
+            <ul class="premium-features">
+              <li>Access to 100+ courses</li>
+              <li>Basic progress tracking</li>
+              <li>Community support</li>
+              <li>Monthly live sessions</li>
+              <li>Certificate of completion</li>
+              <li>Mobile app access</li>
+            </ul>
+            <button class="btn btn-premium" onclick="selectPlan('basic')">
+              <i class="fas fa-shopping-cart me-2"></i>Choose Basic
+            </button>
           </div>
         </div>
-
-        <div class="col-lg-6 col-md-6">
-          <h4 class="text-white mb-3">Register</h4>
-          <p>Register Now on our platoform and open your GATE to Success.</p>
-          <div class="position-relative" style="max-width: 400px">
-            <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="email" placeholder="Your email" />
-            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">
-              SignUp
+        
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="premium-card" style="border: 2px solid var(--accent-color); transform: scale(1.05);">
+            <div class="premium-badge">Recommended</div>
+            <h3>Professional</h3>
+            <div class="premium-price">$49<span>/month</span></div>
+            <ul class="premium-features">
+              <li>Unlimited course access</li>
+              <li>Advanced analytics dashboard</li>
+              <li>Priority 24/7 support</li>
+              <li>Weekly live masterclasses</li>
+              <li>Personalized study plans</li>
+              <li>Career counseling sessions</li>
+              <li>Downloadable resources</li>
+            </ul>
+            <button class="btn btn-premium" onclick="selectPlan('professional')">
+              <i class="fas fa-crown me-2"></i>Choose Professional
+            </button>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="premium-card">
+            <div class="premium-badge">Ultimate</div>
+            <h3>Enterprise</h3>
+            <div class="premium-price">$99<span>/month</span></div>
+            <ul class="premium-features">
+              <li>Everything in Professional</li>
+              <li>One-on-one coaching sessions</li>
+              <li>Custom learning paths</li>
+              <li>Exam preparation bootcamps</li>
+              <li>Job placement assistance</li>
+              <li>Dedicated account manager</li>
+              <li>Team collaboration tools</li>
+            </ul>
+            <button class="btn btn-premium" onclick="selectPlan('enterprise')">
+              <i class="fas fa-rocket me-2"></i>Choose Enterprise
             </button>
           </div>
         </div>
       </div>
+      
+      <div class="text-center mt-5" data-aos="fade-up">
+        <p class="text-white-50 mb-4"><i class="fas fa-shield-alt me-2"></i> All plans include a 30-day money-back guarantee</p>
+        <button class="btn btn-light btn-lg" onclick="window.location.href='compare-plans.html'">
+          <i class="fas fa-chart-bar me-2"></i>Compare All Plans
+        </button>
+      </div>
     </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section" id="testimonials">
     <div class="container">
-      <div class="copyright">
-        <div class="row">
-          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            &copy;
-            <a class="" href="" style="text-decoration: none">BrainQuest</a>, All
-            Right Reserved by NamanGupta.
-          </div>
-          <div class="col-md-6 text-center text-md-end">
-            <div class="footer-menu">
-              <a href="" style="text-decoration: none">Home</a>
-              <a href="" style="text-decoration: none">Cookies</a>
-              <a href="" style="text-decoration: none">Help</a>
-              <a href="" style="text-decoration: none">FQAs</a>
+      <div class="section-title" data-aos="fade-up">
+        <h2>What Our Students Say</h2>
+        <p>Join thousands of successful learners who have transformed their careers with AcademyPro's innovative learning platform.</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
+            <div class="testimonial-content">
+              "AcademyPro completely changed my career trajectory. The GATE preparation course was exceptional, and I secured a top rank thanks to their comprehensive materials, expert guidance, and personalized mentorship."
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student">
+              <div class="author-info">
+                <h5>Rajesh Kumar</h5>
+                <p>GATE 2023 Topper, IIT Delhi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="testimonial-content">
+              "The UGC-NET course structure was perfectly designed for working professionals. The flexible schedule, doubt-clearing sessions, and comprehensive study materials helped me clear the exam in my first attempt with excellent scores."
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Student">
+              <div class="author-info">
+                <h5>Priya Sharma</h5>
+                <p>Assistant Professor, University of Mumbai</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="testimonial-content">
+              "As a working professional, I needed flexible learning options. AcademyPro's dashboard and mobile app allowed me to study during my commute, leading to my AWS certification and a 40% salary increase within 6 months."
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Student">
+              <div class="author-info">
+                <h5>Amit Patel</h5>
+                <p>Cloud Engineer, Tech Solutions Inc.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-5" data-aos="fade-up">
+        <button class="btn btn-outline-primary btn-lg" onclick="window.location.href='testimonials.html'">
+          <i class="fas fa-book-open me-2"></i>Read More Success Stories
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="courses-section" id="contact">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Get In Touch</h2>
+        <p>Have questions? Our dedicated team is here to help you choose the right learning path and answer all your queries.</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="feature-card">
+            <h4 class="mb-4">Contact Information</h4>
+            <div class="d-flex mb-4">
+              <div class="flex-shrink-0">
+                <div class="feature-icon" style="width: 60px; height: 60px;">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <h5>Our Location</h5>
+                <p class="text-muted">123 Learning Street, Knowledge City, EdState 45678, United States</p>
+              </div>
+            </div>
+            
+            <div class="d-flex mb-4">
+              <div class="flex-shrink-0">
+                <div class="feature-icon" style="width: 60px; height: 60px;">
+                  <i class="fas fa-phone"></i>
+                </div>
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <h5>Phone Number</h5>
+                <p class="text-muted">+1 (555) 123-4567<br>+1 (555) 987-6543 (Toll-Free)</p>
+              </div>
+            </div>
+            
+            <div class="d-flex mb-4">
+              <div class="flex-shrink-0">
+                <div class="feature-icon" style="width: 60px; height: 60px;">
+                  <i class="fas fa-envelope"></i>
+                </div>
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <h5>Email Address</h5>
+                <p class="text-muted">support@academypro.com<br>admissions@academypro.com</p>
+              </div>
+            </div>
+            
+            <div class="d-flex">
+              <div class="flex-shrink-0">
+                <div class="feature-icon" style="width: 60px; height: 60px;">
+                  <i class="fas fa-clock"></i>
+                </div>
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <h5>Working Hours</h5>
+                <p class="text-muted">Monday - Friday: 9:00 AM - 8:00 PM EST<br>Saturday: 10:00 AM - 6:00 PM EST<br>Sunday: 12:00 PM - 5:00 PM EST</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="feature-card">
+            <h4 class="mb-4">Send Us a Message</h4>
+            <form id="contactForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Your Name</label>
+                  <input type="text" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Your Email</label>
+                  <input type="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Subject</label>
+                  <input type="text" class="form-control" placeholder="Enter subject" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Your Message</label>
+                  <textarea class="form-control" rows="5" placeholder="Enter your message" required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary-custom w-100">
+                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-3 col-md-6">
+          <h5>AcademyPro</h5>
+          <p class="mt-3" style="color: rgba(255,255,255,0.7);">Your premier destination for professional e-learning and certification preparation. Transforming careers through innovative education.</p>
+          <div class="footer-social mt-4">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6">
+          <h5>Quick Links</h5>
+          <a href="#home">Home</a>
+          <a href="#courses">Courses</a>
+          <a href="#features">Features</a>
+          <a href="#premium">Pricing</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="about.html">About Us</a>
+          <a href="careers.html">Careers</a>
+        </div>
+        
+        <div class="col-lg-3 col-md-6">
+          <h5>Popular Courses</h5>
+          <a href="#">GATE Computer Science 2024</a>
+          <a href="#">UGC-NET Education</a>
+          <a href="#">AWS Solutions Architect</a>
+          <a href="#">Data Science Bootcamp</a>
+          <a href="#">Digital Marketing Mastery</a>
+          <a href="#">Business Analytics</a>
+          <a href="#">Python Programming</a>
+        </div>
+        
+        <div class="col-lg-3 col-md-6">
+          <h5>Newsletter</h5>
+          <p class="mt-3" style="color: rgba(255,255,255,0.7);">Subscribe to get updates on new courses, exclusive offers, and learning tips.</p>
+          <div class="input-group mt-4">
+            <input type="email" class="form-control" placeholder="Your Email">
+            <button class="btn btn-primary" type="button">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+          <div class="mt-4">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="refund-policy.html">Refund Policy</a>
+            <a href="cookies.html">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2023 <a href="#">AcademyPro</a>. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i> for learners worldwide | <a href="#">Sitemap</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login to Your Account</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-4">
+              <label for="loginEmail" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-4">
+              <label for="loginPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+              <div class="form-text text-end">
+                <a href="forgot-password.html" class="text-decoration-none">Forgot Password?</a>
+              </div>
+            </div>
+            <div class="mb-4 form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe">
+              <label class="form-check-label" for="rememberMe">Remember me</label>
+            </div>
+            <button type="submit" class="btn btn-primary-custom w-100 py-3">
+              <i class="fas fa-sign-in-alt me-2"></i>Login to Account
+            </button>
+          </form>
+          <div class="text-center mt-4">
+            <p class="mb-3">Or continue with</p>
+            <div class="d-flex gap-3">
+              <button class="btn btn-outline-secondary flex-fill">
+                <i class="fab fa-google me-2"></i> Google
+              </button>
+              <button class="btn btn-outline-secondary flex-fill">
+                <i class="fab fa-linkedin me-2"></i> LinkedIn
+              </button>
+            </div>
+            <p class="mt-4">Don't have an account? 
+              <a href="#" class="text-primary fw-bold" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">Sign Up</a>
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- Footer End -->
+
+  <!-- Signup Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create Your Account</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="signupForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
+              </div>
+            </div>
+            <div class="mt-3">
+              <label for="signupEmail" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="mt-3">
+              <label for="signupPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="signupPassword" placeholder="Create a password" required>
+              <div class="form-text">Must be at least 8 characters with numbers and letters</div>
+            </div>
+            <div class="mt-3">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" required>
+            </div>
+            <div class="mt-3 form-check">
+              <input type="checkbox" class="form-check-input" id="termsCheck" required>
+              <label class="form-check-label" for="termsCheck">
+                I agree to the <a href="terms.html" class="text-primary">Terms of Service</a> and <a href="privacy-policy.html" class="text-primary">Privacy Policy</a>
+              </label>
+            </div>
+            <div class="mt-4">
+              <button type="submit" class="btn btn-primary-custom w-100 py-3">
+                <i class="fas fa-user-plus me-2"></i>Create Account
+              </button>
+            </div>
+          </form>
+          <div class="text-center mt-4">
+            <p>Already have an account? 
+              <a href="#" class="text-primary fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Purchase Modal -->
+  <div class="modal fade" id="purchaseModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="courseModalTitle">Complete Your Purchase</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div id="purchaseDetails">
+            <!-- Purchase details will be dynamically loaded here -->
+          </div>
+          <div class="mt-4">
+            <h6 class="mb-3">Select Payment Method</h6>
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="form-check card-option">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" checked>
+                  <label class="form-check-label w-100 p-3 border rounded" for="creditCard">
+                    <i class="fab fa-cc-visa fa-2x text-primary"></i>
+                    <i class="fab fa-cc-mastercard fa-2x text-danger ms-2"></i>
+                    <p class="mb-0 mt-2 small">Credit/Debit Card</p>
+                  </label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-check card-option">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="paypal">
+                  <label class="form-check-label w-100 p-3 border rounded" for="paypal">
+                    <i class="fab fa-cc-paypal fa-2x text-info"></i>
+                    <p class="mb-0 mt-2 small">PayPal</p>
+                  </label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-check card-option">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="upi">
+                  <label class="form-check-label w-100 p-3 border rounded" for="upi">
+                    <i class="fas fa-mobile-alt fa-2x text-success"></i>
+                    <p class="mb-0 mt-2 small">UPI / Wallet</p>
+                  </label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-check card-option">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="netBanking">
+                  <label class="form-check-label w-100 p-3 border rounded" for="netBanking">
+                    <i class="fas fa-university fa-2x text-warning"></i>
+                    <p class="mb-0 mt-2 small">Net Banking</p>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-top">
+            <button class="btn btn-primary-custom w-100 py-3" onclick="processPayment()">
+              <i class="fas fa-lock me-2"></i>Complete Secure Payment
+            </button>
+            <p class="text-center text-muted small mt-3">
+              <i class="fas fa-shield-alt me-1"></i> Your payment is secured with 256-bit SSL encryption
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Demo Button -->
+  <button id="demoButton" title="See Interactive Demo">
+    <i class="fas fa-play"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+    
+    // Remove loader after page load
+    window.addEventListener('load', function() {
+      const loader = document.querySelector('.loader');
+      setTimeout(() => {
+        loader.classList.add('hidden');
+      }, 1000);
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      
+      // Progress bar
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    });
+    
+    // Back to top button
+    const backToTopButton = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.style.display = 'flex';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Demo button functionality
+    document.getElementById('demoButton').addEventListener('click', function() {
+      const features = [
+        'Try clicking on any "Enroll Now" button',
+        'Filter courses using the category buttons',
+        'Click "Go Premium" to see pricing options',
+        'Try the login/signup modals',
+        'Scroll to see smooth animations',
+        'Hover over cards for 3D effects',
+        'Check out the counter animations in stats'
+      ];
+      
+      const featureList = features.map(f => `• ${f}`).join('\n');
+      alert(`🎮 Interactive Demo Guide:\n\n${featureList}\n\n✨ Tip: The website is fully responsive! Try it on mobile too!`);
+    });
+    
+    // Course data
+    const courses = [
+      {
+        id: 1,
+        title: "GATE Computer Science 2024",
+        description: "Complete preparation for GATE CS with 500+ hours of video lectures, mock tests, and doubt clearing sessions.",
+        category: "gate",
+        price: 299,
+        originalPrice: 499,
+        image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.8,
+        students: 12500,
+        badge: "Bestseller"
+      },
+      {
+        id: 2,
+        title: "UGC-NET Education Paper I & II",
+        description: "Comprehensive course covering both papers with research methodology and teaching aptitude.",
+        category: "net",
+        price: 249,
+        originalPrice: 399,
+        image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.7,
+        students: 8900,
+        badge: "New"
+      },
+      {
+        id: 3,
+        title: "AWS Solutions Architect",
+        description: "Master AWS cloud services and prepare for the certification exam with hands-on labs.",
+        category: "certification",
+        price: 399,
+        originalPrice: 599,
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.9,
+        students: 15600,
+        badge: "Hot"
+      },
+      {
+        id: 4,
+        title: "Data Science Bootcamp",
+        description: "Learn Python, Machine Learning, and Data Visualization with real-world projects.",
+        category: "tech",
+        price: 349,
+        originalPrice: 549,
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.8,
+        students: 21300,
+        badge: "Bestseller"
+      },
+      {
+        id: 5,
+        title: "Digital Marketing Mastery",
+        description: "Complete guide to SEO, Social Media Marketing, Google Ads, and Analytics.",
+        category: "business",
+        price: 199,
+        originalPrice: 299,
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.6,
+        students: 18700,
+        badge: null
+      },
+      {
+        id: 6,
+        title: "Business Analytics with Excel & Tableau",
+        description: "Transform data into business insights with advanced analytics tools and techniques.",
+        category: "business",
+        price: 279,
+        originalPrice: 449,
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.7,
+        students: 11400,
+        badge: "Trending"
+      }
+    ];
+    
+    // Load courses on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      loadCourses('all');
+      initializeCounterAnimation();
+      
+      // Form submission handlers
+      document.getElementById('loginForm')?.addEventListener('submit', handleLogin);
+      document.getElementById('signupForm')?.addEventListener('submit', handleSignup);
+      document.getElementById('contactForm')?.addEventListener('submit', handleContact);
+      
+      // Initialize tooltips
+      const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    });
+    
+    // Load courses function
+    function loadCourses(filter = 'all') {
+      const container = document.getElementById('courses-container');
+      container.innerHTML = '';
+      
+      const filteredCourses = filter === 'all' ? courses : courses.filter(course => course.category === filter);
+      
+      filteredCourses.forEach(course => {
+        const courseCard = `
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="course-card">
+              ${course.badge ? `<div class="course-badge">${course.badge}</div>` : ''}
+              <div class="overflow-hidden" style="height: 220px;">
+                <img src="${course.image}" class="course-img w-100" alt="${course.title}">
+              </div>
+              <div class="course-content">
+                <span class="course-category">${course.category.toUpperCase()}</span>
+                <h5 class="course-title">${course.title}</h5>
+                <p class="course-description">${course.description}</p>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div>
+                    <i class="fas fa-star text-warning"></i>
+                    <span class="ms-1 fw-bold">${course.rating}</span>
+                    <span class="text-muted ms-2">(${course.students.toLocaleString()})</span>
+                  </div>
+                  <div>
+                    <i class="fas fa-clock text-muted"></i>
+                    <span class="text-muted ms-1">Self-Paced</span>
+                  </div>
+                </div>
+                <div class="course-meta">
+                  <div class="course-price">$${course.price} <span>$${course.originalPrice}</span></div>
+                  <button class="btn btn-enroll" onclick="enrollCourse(${course.id})">
+                    <i class="fas fa-shopping-cart me-2"></i>Enroll Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        container.innerHTML += courseCard;
+      });
+    }
+    
+    // Filter courses
+    function filterCourses(category) {
+      loadCourses(category);
+      
+      // Update active filter button
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+    
+    // Enroll in course
+    function enrollCourse(courseId) {
+      const course = courses.find(c => c.id === courseId);
+      const modalTitle = document.getElementById('courseModalTitle');
+      const purchaseDetails = document.getElementById('purchaseDetails');
+      
+      modalTitle.textContent = `Purchase: ${course.title}`;
+      purchaseDetails.innerHTML = `
+        <div class="d-flex justify-content-between align-items-center mb-4 p-3 bg-light rounded">
+          <div>
+            <h6 class="mb-1">${course.title}</h6>
+            <p class="text-muted mb-0 small">${course.description.substring(0, 60)}...</p>
+          </div>
+          <div class="text-end">
+            <h4 class="text-primary mb-0">$${course.price}</h4>
+            <small class="text-muted"><s>$${course.originalPrice}</s></small>
+          </div>
+        </div>
+        <div class="alert alert-success d-flex align-items-center">
+          <i class="fas fa-check-circle fa-2x me-3 text-success"></i>
+          <div>
+            <h6 class="mb-1">14-Day Money-Back Guarantee</h6>
+            <p class="mb-0 small">Not satisfied? Get a full refund within 14 days.</p>
+          </div>
+        </div>
+      `;
+      
+      const purchaseModal = new bootstrap.Modal(document.getElementById('purchaseModal'));
+      purchaseModal.show();
+    }
+    
+    // Select premium plan
+    function selectPlan(plan) {
+      const planNames = {
+        basic: "Basic Plan ($19/month)",
+        professional: "Professional Plan ($49/month)",
+        enterprise: "Enterprise Plan ($99/month)"
+      };
+      
+      const modalTitle = document.getElementById('courseModalTitle');
+      const purchaseDetails = document.getElementById('purchaseDetails');
+      
+      modalTitle.textContent = `Purchase: ${planNames[plan]}`;
+      purchaseDetails.innerHTML = `
+        <div class="d-flex justify-content-between align-items-center mb-4 p-3 bg-light rounded">
+          <div>
+            <h6 class="mb-1">${planNames[plan]}</h6>
+            <p class="text-muted mb-0 small">Premium subscription with full platform access</p>
+          </div>
+          <div class="text-end">
+            <h4 class="text-primary mb-0">${plan === 'basic' ? '$19' : plan === 'professional' ? '$49' : '$99'}</h4>
+            <small class="text-muted">per month</small>
+          </div>
+        </div>
+        <div class="alert alert-success d-flex align-items-center">
+          <i class="fas fa-check-circle fa-2x me-3 text-success"></i>
+          <div>
+            <h6 class="mb-1">30-Day Money-Back Guarantee</h6>
+            <p class="mb-0 small">Not satisfied? Get a full refund within 30 days.</p>
+          </div>
+        </div>
+      `;
+      
+      const purchaseModal = new bootstrap.Modal(document.getElementById('purchaseModal'));
+      purchaseModal.show();
+    }
+    
+    // Process payment
+    function processPayment() {
+      const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked').id;
+      const methodNames = {
+        creditCard: "Credit/Debit Card",
+        paypal: "PayPal",
+        upi: "UPI",
+        netBanking: "Net Banking"
+      };
+      
+      // Show processing animation
+      const purchaseModal = bootstrap.Modal.getInstance(document.getElementById('purchaseModal'));
+      const modalBody = document.querySelector('#purchaseModal .modal-body');
+      const originalContent = modalBody.innerHTML;
+      
+      modalBody.innerHTML = `
+        <div class="text-center py-5">
+          <div class="spinner-border text-primary mb-4" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Processing...</span>
+          </div>
+          <h5>Processing Payment</h5>
+          <p class="text-muted">Please wait while we process your payment via ${methodNames[selectedMethod]}</p>
+        </div>
+      `;
+      
+      setTimeout(() => {
+        modalBody.innerHTML = `
+          <div class="text-center py-5">
+            <div class="mb-4">
+              <i class="fas fa-check-circle fa-5x text-success"></i>
+            </div>
+            <h5 class="text-success">Payment Successful!</h5>
+            <p class="text-muted">Your purchase has been completed. Check your email for details.</p>
+            <button class="btn btn-primary mt-3" data-bs-dismiss="modal">Continue Learning</button>
+          </div>
+        `;
+        
+        // Update UI after successful purchase
+        setTimeout(() => {
+          purchaseModal.hide();
+          showNotification('Purchase completed successfully! Check your email for details.', 'success');
+        }, 2000);
+      }, 2000);
+    }
+    
+    // Handle login
+    function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      
+      // Show processing
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        // Simulate successful login
+        const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+        loginModal.hide();
+        
+        // Update navbar
+        document.querySelector('.navbar .button').innerHTML = `
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              <i class="fas fa-user-circle me-2"></i>Welcome, User
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="dashboard.html"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
+              <li><a class="dropdown-item" href="my-courses.html"><i class="fas fa-book me-2"></i>My Courses</a></li>
+              <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>Profile</a></li>
+              <li><a class="dropdown-item" href="settings.html"><i class="fas fa-cog me-2"></i>Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+            </ul>
+          </div>
+        `;
+        
+        showNotification(`Welcome back! You've successfully logged in.`, 'success');
+        
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }, 1500);
+    }
+    
+    // Handle signup
+    function handleSignup(e) {
+      e.preventDefault();
+      const firstName = document.getElementById('firstName').value;
+      
+      // Show processing
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Creating Account...';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        // Simulate successful signup
+        const signupModal = bootstrap.Modal.getInstance(document.getElementById('signupModal'));
+        signupModal.hide();
+        
+        showNotification(`Welcome ${firstName}! Your account has been created successfully.`, 'success');
+        
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // Clear form
+        e.target.reset();
+      }, 1500);
+    }
+    
+    // Handle contact form
+    function handleContact(e) {
+      e.preventDefault();
+      
+      // Show processing
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        showNotification('Thank you for your message! We will get back to you within 24 hours.', 'success');
+        e.target.reset();
+        
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }, 1500);
+    }
+    
+    // Counter animation for stats
+    function initializeCounterAnimation() {
+      const counters = document.querySelectorAll('.stat-number');
+      const speed = 200;
+      
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = +counter.getAttribute('data-count');
+          const count = +counter.innerText;
+          const increment = target / speed;
+          
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 10);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        
+        // Start counting when element is in viewport
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              updateCount();
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        
+        observer.observe(counter);
+      });
+    }
+    
+    // Show notification
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+      notification.style.cssText = `
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        min-width: 300px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        animation: slideInRight 0.3s ease;
+      `;
+      notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'} me-2"></i>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      `;
+      
+      document.body.appendChild(notification);
+      
+      // Auto remove after 5 seconds
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.classList.remove('show');
+          setTimeout(() => notification.remove(), 300);
+        }
+      }, 5000);
+    }
+    
+    // Add CSS for slide in animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
 </body>
-
-<script>
-  // Login Section
-
-const loginBtn = document.querySelector('.login-btn');
-const loginForm = document.querySelector('.login-form');
-const cancelBtn = document.querySelector('.cancel-btn');
-
-loginBtn.addEventListener('click', () => {
-  loginForm.style.display = 'block';
-});
-
-cancelBtn.addEventListener('click', () => {
-  loginForm.style.display = 'none';
-});
-
-const signupBtn = document.querySelector('.signup-btn');
-const signupForm = document.querySelector('.signup-form');
-const cancelBtn2 = document.querySelector('.cancel-btn2');
-
-signupBtn.addEventListener('click', () => {
-  signupForm.style.display = 'block';
-});
-
-cancelBtn2.addEventListener('click', () => {
-  signupForm.style.display = 'none';
-});
-
-const loginBtn2 = document.querySelector('.login-btn2');
-const loginForm2 = document.querySelector('.login-form');
-const cancelBtn3 = document.querySelector('.cancel-btn');
-
-loginBtn2.addEventListener('click', () => {
-  loginForm.style.display = 'block';
-});
-
-cancelBtn3.addEventListener('click', () => {
-  loginForm.style.display = 'none';
-});
-
-</script>
-<script src="script.js"></script>
-
-</html> 
+</html>
